@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="./css/media.css">
+        <link rel="stylesheet" href="./css/common.css">
+    </head>
+    <body>
+        <div class="main">
+          <div class="content">
+            <img src="./assets/content.png" class="icon-content" alt="">
+            <div id="area1" class="numBox"></div>
+            <div id="row1" class="numBox"></div>
+            <div id="num1" class="numBox"></div>
+            <div id="area2" class="numBox"></div>
+            <div id="row2" class="numBox"></div>
+            <div id="num2" class="numBox"></div>
+          </div>
+          <div class="btn" id="rowBtn">
+
+          </div>
+        </div>
+
+    </body>
+    <script src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="./js/index.js" charset="utf-8"></script>
+    <script>
+      // 初始化
+      $('#area1').rollNum({
+        'type':'zm',
+        'height':3
+      })
+      $('#row1').rollNum({
+        'type':'row',
+        'height':3
+      })
+      $('#num1').rollNum({
+        'type':'num',
+        'height':3
+      })
+      $('#area2').rollNum({
+        'type':'zm',
+        'height':3
+      })
+      $('#row2').rollNum({
+        'type':'row',
+        'height':3
+      })
+      $('#num2').rollNum({
+        'type':'num',
+        'height':3
+      })
+
+      $('#rowBtn').on('click',function(){
+        $('#area1').findNum({
+          'type':'zm',
+          'height':3,
+          'result':'A5'
+        })
+        $('#row1').findNum({
+          'type':'row',
+          'height':3,
+          'result':'A05'
+        })
+        $('#num1').findNum({
+          'type':'num',
+          'height':3,
+          'result':'008'
+        })
+        $('#area2').findNum({
+          'type':'zm',
+          'height':3,
+          'result':'C5'
+        })
+        $('#row2').findNum({
+          'type':'row',
+          'height':3,
+          'result':'C05'
+        })
+        $('#num2').findNum({
+          'type':'num',
+          'height':3,
+          'result':'015'
+        })
+
+        $.ajax({
+          url:'yzwh.uhow.top/test',
+          type:'post',
+          dataType:'json',
+          success:function(res){
+            console.log(res)
+          }
+        })
+      })
+      // 结果
+
+    </script>
+</html>
